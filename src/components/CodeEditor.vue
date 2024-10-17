@@ -21,7 +21,15 @@ const MONACO_EDITOR_OPTIONS = {
     formatOnType: true,
     formatOnPaste: true,
     fontSize: 24,
-    lineHeight:32,
+    lineHeight: 32,
+    fontFamily: 'Courier New',
+    suggest: {
+        showKeyWords: true,
+        showSnippets: true,
+        showFunctions: true,
+        showVariables: true,
+        showConstants: true,
+    }
 }
 
 const { code, loadCode } = useCodeLoader('/original.c');
