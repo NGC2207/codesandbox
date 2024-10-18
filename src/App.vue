@@ -1,23 +1,22 @@
 <script setup lang="ts">
 import Console from '@/components/Console.vue';
 import CodeEditor from '@/components/CodeEditor.vue';
-import DiffEditor from '@/components/DiffEditor.vue';
 import MarkdownPreview from '@/components/MarkdownPreview.vue';
+import { ResizablePanelGroup, ResizableHandle, ResizablePanel } from '@/components/ui/resizable';
 </script>
 
 <template>
-    <div class="h-screen w-full flex flex-row">
-        <div class="h-full w-1/4 border-r">
+    <ResizablePanelGroup id="main-group" direction="horizontal" class="h-screen w-full">
+        <ResizablePanel id="panel-markdown" :default-size="25" class="h-screen">
             <MarkdownPreview />
-        </div>
-        <div class="h-full w-2/4">
+        </ResizablePanel>
+        <ResizableHandle id="handle-1" with-handle />
+        <ResizablePanel id="panel-code" :default-size="50" class="h-screen">
             <CodeEditor />
-        </div>
-        <!-- <div class="h-full w-2/4">
-            <DiffEditor />
-        </div> -->
-        <div class="h-full w-1/4">
+        </ResizablePanel>
+        <ResizableHandle id="handle-2" with-handle />
+        <ResizablePanel id="panel-console" :default-size="25" class="h-screen">
             <Console />
-        </div>
-    </div>
+        </ResizablePanel>
+    </ResizablePanelGroup>
 </template>
