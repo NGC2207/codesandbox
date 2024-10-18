@@ -1,16 +1,15 @@
 <script setup lang="ts">
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from '@/components/ui/resizable';
 import Console from '@/components/Console.vue';
 import CodeEditor from '@/components/CodeEditor.vue';
 import Switch from '@/components/ui/switch/Switch.vue';
 import MarkdownPreview from '@/components/MarkdownPreview.vue';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { CommandLineIcon, DocumentTextIcon } from '@heroicons/vue/24/outline';
-
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from '@/components/ui/resizable';
 </script>
 
 <template>
@@ -28,9 +27,9 @@ import {
       </div>
     </header>
 
-    <div class="mx-auto flex w-full items-start gap-x-2 px-2 py-2 h-full">
-      <ResizablePanelGroup direction="horizontal" class="flex w-full h-full">
-        <ResizablePanel :default-size="33" class="flex-1 hidden lg:block">
+    <div class="mx-auto flex w-full items-start px-2 py-2 h-full">
+      <ResizablePanelGroup direction="horizontal" class="flex w-full h-full gap-x-1">
+        <ResizablePanel :default-size="25" class="flex-1 hidden lg:block">
           <aside class="sticky top-8 border h-full rounded-lg">
             <div class="flex flex-col h-full">
               <div class="h-8 flex items-center px-4 justify-start bg-slate-300 rounded-t-lg">
@@ -41,8 +40,8 @@ import {
             </div>
           </aside>
         </ResizablePanel>
-        <ResizableHandle class="hidden lg:block" />
-        <ResizablePanel :default-size="66" class="flex-2">
+        <ResizableHandle class="hidden lg:block bg-transparent" />
+        <ResizablePanel :default-size="50" class="flex-2">
           <main class="flex-grow border h-full rounded-lg">
             <div class="flex flex-col h-full">
               <div class="h-8 flex items-center px-4 bg-slate-300 rounded-t-lg">
@@ -53,8 +52,8 @@ import {
             </div>
           </main>
         </ResizablePanel>
-        <ResizableHandle class="hidden xl:block" />
-        <ResizablePanel :default-size="33" class="flex-1 hidden xl:block">
+        <ResizableHandle class="hidden xl:block bg-transparent" />
+        <ResizablePanel :default-size="25" class="flex-1 hidden xl:block">
           <aside class="sticky top-8 border h-full rounded-lg">
             <Console />
           </aside>
