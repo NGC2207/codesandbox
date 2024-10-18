@@ -1,13 +1,13 @@
 <template>
     <div class="h-full w-full">
-        <vue-monaco-editor v-model:value="code" theme="vs" language="c" :options="CODE_EDITOR_OPTIONS"
+        <vue-monaco-editor v-model:value="content" theme="vs" language="c" :options="CODE_EDITOR_OPTIONS"
             @mount="handleMount" />
     </div>
 </template>
 
 <script setup lang="ts">
 import { shallowRef, onMounted } from 'vue';
-import { useCodeLoader } from '@/lib/loader';
+import { useFileLoader } from '@/lib/loader';
 import { CODE_EDITOR_OPTIONS } from '@/config/editor';
 import { loader, VueMonacoEditor } from '@guolao/vue-monaco-editor';
 
@@ -17,16 +17,12 @@ loader.config({
     },
 })
 
-const { code, loadCode } = useCodeLoader('/original.c');
 const editor = shallowRef();
+const { content, loadFile } = useFileLoader('/original.c');
 const handleMount = (editorInstance: any) => (editor.value = editorInstance);
 
-function formatCode() {
-    editor.value?.getAction('editor.action.formatDocument').run();
-}
-
 onMounted(() => {
-    loadCode();
+    loadFile();
 });
 </script>
 

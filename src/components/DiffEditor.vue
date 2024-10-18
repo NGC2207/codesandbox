@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { shallowRef, onMounted } from 'vue';
-import { useCodeLoader } from '@/lib/loader';
+import { useFileLoader } from '@/lib/loader';
 import { DIFF_EDITOR_OPTIONS } from '@/config/editor';
 import { loader, VueMonacoDiffEditor } from '@guolao/vue-monaco-editor';
 
@@ -17,15 +17,15 @@ loader.config({
     },
 })
 
-const { code: original, loadCode: loadOriginalCode } = useCodeLoader('/original.c');
-const { code: modified, loadCode: loadModifiedCode } = useCodeLoader('/modified.c');
+const { content: original, loadFile: loadOriginalFile } = useFileLoader('/original.c');
+const { content: modified, loadFile: loadModifiedFile } = useFileLoader('/modified.c');
 
 const diffEditor = shallowRef();
 const handleMount = (diffEditorInstance: any) => (diffEditor.value = diffEditorInstance);
 
 onMounted(() => {
-    loadOriginalCode();
-    loadModifiedCode();
+    loadOriginalFile();
+    loadModifiedFile();
 });
 </script>
 

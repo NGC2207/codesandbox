@@ -2,16 +2,16 @@
 import { onMounted } from 'vue';
 import 'md-editor-v3/lib/preview.css';
 import { MdPreview } from 'md-editor-v3';
-import { useMarkdownLoader } from '@/lib/loader';
+import { useFileLoader } from '@/lib/loader';
 
-const { text, loadMarkdown } = useMarkdownLoader('/test.md');
 const id = 'preview-only';
+const { content, loadFile } = useFileLoader('/test.md');
 
 onMounted(() => {
-    loadMarkdown();
+    loadFile();
 });
 </script>
 
 <template>
-    <MdPreview :modelValue="text" :editorId="id" />
+    <MdPreview :modelValue="content" :editorId="id" />
 </template>
