@@ -1,6 +1,6 @@
 <template>
     <div class="h-full w-full">
-        <vue-monaco-editor v-model:value="code" theme="vs" language="c" :options="MONACO_EDITOR_OPTIONS"
+        <vue-monaco-editor v-model:value="code" theme="vs" language="c" :options="CODE_EDITOR_OPTIONS"
             @mount="handleMount" />
     </div>
 </template>
@@ -8,6 +8,7 @@
 <script setup lang="ts">
 import { shallowRef, onMounted } from 'vue';
 import { useCodeLoader } from '@/lib/loader';
+import { CODE_EDITOR_OPTIONS } from '@/config/editor';
 import { loader, VueMonacoEditor } from '@guolao/vue-monaco-editor';
 
 loader.config({
@@ -15,22 +16,6 @@ loader.config({
         vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs',
     },
 })
-
-const MONACO_EDITOR_OPTIONS = {
-    automaticLayout: true,
-    formatOnType: true,
-    formatOnPaste: true,
-    fontSize: 24,
-    lineHeight: 32,
-    fontFamily: 'Courier New',
-    suggest: {
-        showKeyWords: true,
-        showSnippets: true,
-        showFunctions: true,
-        showVariables: true,
-        showConstants: true,
-    }
-}
 
 const { code, loadCode } = useCodeLoader('/original.c');
 const editor = shallowRef();

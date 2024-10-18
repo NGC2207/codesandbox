@@ -1,13 +1,14 @@
 <template>
     <div class="h-full w-full">
         <vue-monaco-diff-editor theme="vs" :original="original" :modified="modified" language="c"
-            :options="OPTIONS" @mount="handleMount" />
+            :options="DIFF_EDITOR_OPTIONS" @mount="handleMount" />
     </div>
 </template>
 
 <script setup lang="ts">
 import { shallowRef, onMounted } from 'vue';
 import { useCodeLoader } from '@/lib/loader';
+import { DIFF_EDITOR_OPTIONS } from '@/config/editor';
 import { loader, VueMonacoDiffEditor } from '@guolao/vue-monaco-editor';
 
 loader.config({
@@ -15,13 +16,6 @@ loader.config({
         vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs',
     },
 })
-
-const OPTIONS = {
-    automaticLayout: true,
-    formatOnType: true,
-    formatOnPaste: true,
-    readonly: true,
-}
 
 const { code: original, loadCode: loadOriginalCode } = useCodeLoader('/original.c');
 const { code: modified, loadCode: loadModifiedCode } = useCodeLoader('/modified.c');
