@@ -7,6 +7,7 @@ import {
 import Console from '@/components/Console.vue';
 import CodeEditor from '@/components/CodeEditor.vue';
 import Switch from '@/components/ui/switch/Switch.vue';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import MarkdownPreview from '@/components/MarkdownPreview.vue';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { CommandLineIcon, DocumentTextIcon } from '@heroicons/vue/24/outline';
@@ -16,7 +17,7 @@ import { CommandLineIcon, DocumentTextIcon } from '@heroicons/vue/24/outline';
   <div class="flex min-h-full flex-col h-full">
     <header class="shrink-0 border-b">
       <div class="mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <img class="h-12 w-auto" src="/logo.svg" alt="Litchi" />
+        <img class="h-10 w-auto" src="/logo.svg" alt="Litchi" />
         <div class="flex items-center gap-x-8">
           <Switch />
           <Avatar>
@@ -36,7 +37,9 @@ import { CommandLineIcon, DocumentTextIcon } from '@heroicons/vue/24/outline';
                 <DocumentTextIcon class="h-6 w-auto text-cyan-500" />
                 <span>题目描述</span>
               </div>
-              <MarkdownPreview />
+              <ScrollArea class="h-full">
+                <MarkdownPreview />
+              </ScrollArea>
             </div>
           </aside>
         </ResizablePanel>
@@ -55,7 +58,9 @@ import { CommandLineIcon, DocumentTextIcon } from '@heroicons/vue/24/outline';
         <ResizableHandle class="hidden xl:block bg-transparent" />
         <ResizablePanel :default-size="25" class="flex-1 hidden xl:block">
           <aside class="sticky top-8 border h-full rounded-lg">
-            <Console />
+            <ScrollArea class="h-full">
+              <Console />
+            </ScrollArea>
           </aside>
         </ResizablePanel>
       </ResizablePanelGroup>
