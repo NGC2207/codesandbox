@@ -1,22 +1,51 @@
 <script setup lang="ts">
 import Console from '@/components/Console.vue';
 import CodeEditor from '@/components/CodeEditor.vue';
+import Switch from '@/components/ui/switch/Switch.vue';
 import MarkdownPreview from '@/components/MarkdownPreview.vue';
-import { ResizablePanelGroup, ResizableHandle, ResizablePanel } from '@/components/ui/resizable';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { CommandLineIcon, DocumentTextIcon } from '@heroicons/vue/24/outline';
 </script>
 
 <template>
-    <ResizablePanelGroup id="main-group" direction="horizontal" class="h-screen w-full">
-        <ResizablePanel id="panel-markdown" :default-size="25" class="h-screen">
-            <MarkdownPreview />
-        </ResizablePanel>
-        <ResizableHandle id="handle-1" with-handle />
-        <ResizablePanel id="panel-code" :default-size="50" class="h-screen">
-            <CodeEditor />
-        </ResizablePanel>
-        <ResizableHandle id="handle-2" with-handle />
-        <ResizablePanel id="panel-console" :default-size="25" class="h-screen">
-            <Console />
-        </ResizablePanel>
-    </ResizablePanelGroup>
+  <div class="flex min-h-full flex-col h-full">
+    <header class="shrink-0 border-b">
+      <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <img class="h-12 w-auto" src="/logo.svg" alt="Litchi" />
+        <div class="flex items-center gap-x-8">
+          <Switch />
+          <Avatar>
+            <AvatarImage src="https://github.com/radix-vue.png" alt="@radix-vue" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto flex w-full items-start gap-x-2 px-2 py-2 h-full">
+      <aside class="sticky top-8 hidden flex-grow lg:block border h-full rounded-lg" style="flex: 1;">
+        <div class="flex flex-col h-full">
+          <div class="h-8 flex items-center px-4 justify-start bg-slate-300 rounded-t-lg">
+            <DocumentTextIcon class="h-6 w-auto text-cyan-500" />
+            <span>题目描述</span>
+          </div>
+          <MarkdownPreview />
+        </div>
+      </aside>
+
+      <main class="flex-grow border h-full rounded-lg" style="flex:2;">
+        <div class="flex flex-col h-full">
+          <div class="h-8 flex items-center px-4 bg-slate-300 rounded-t-lg">
+            <CommandLineIcon class="h-6 w-auto text-cyan-500" />
+            <span>代码</span>
+          </div>
+          <CodeEditor />
+        </div>
+      </main>
+
+      <aside class="sticky top-8 hidden flex-grow xl:block border h-full rounded-lg" style="flex: 1;">
+        <Console />
+      </aside>
+    </div>
+  </div>
 </template>
