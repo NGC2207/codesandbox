@@ -18,7 +18,7 @@ loader.config({
 })
 
 const editor = shallowRef();
-const { content, loadFile } = useFileLoader('/original.c');
+const { content, loadFile } = useFileLoader('/problems/two-sum/c/template.c');
 const handleMount = (editorInstance: any) => (editor.value = editorInstance);
 
 onMounted(() => {

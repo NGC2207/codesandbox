@@ -5,7 +5,7 @@ import { MdPreview } from 'md-editor-v3';
 import { useFileLoader } from '@/lib/loader';
 
 const id = 'preview-only';
-const { content, loadFile } = useFileLoader('/test.md');
+const { content, loadFile } = useFileLoader('/problems/two-sum/description.md');
 
 onMounted(() => {
     loadFile();

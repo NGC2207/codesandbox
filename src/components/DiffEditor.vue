@@ -17,8 +17,8 @@ loader.config({
     },
 })
 
-const { content: original, loadFile: loadOriginalFile } = useFileLoader('/original.c');
-const { content: modified, loadFile: loadModifiedFile } = useFileLoader('/modified.c');
+const { content: original, loadFile: loadOriginalFile } = useFileLoader('/problems/two-sum/c/template.c');
+const { content: modified, loadFile: loadModifiedFile } = useFileLoader('/problems/two-sum/c/solution.c');
 
 const diffEditor = shallowRef();
 const handleMount = (diffEditorInstance: any) => (diffEditor.value = diffEditorInstance);

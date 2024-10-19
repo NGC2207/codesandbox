@@ -12,7 +12,7 @@ import BaseLayout from '@/layouts/BaseLayout.vue';
         <template #main>
             <div class="flex-grow">
                 <ResizablePanelGroup direction="horizontal">
-                    <ResizablePanel :default-size="25" class="hidden lg:block">
+                    <ResizablePanel :default-size="20" class="hidden lg:block">
                         <div class="relative h-full w-full">
                             <div class="absolute top-0 bottom-2 left-2 right-0.5 rounded-lg shadow-lg">
                                 <slot name="problem"></slot>
@@ -20,7 +20,7 @@ import BaseLayout from '@/layouts/BaseLayout.vue';
                         </div>
                     </ResizablePanel>
                     <ResizableHandle class="hidden lg:block bg-transparent hover:bg-cyan-500" />
-                    <ResizablePanel :default-size="50">
+                    <ResizablePanel :default-size="60">
                         <div class="relative h-full w-full">
                             <div class="absolute top-0 bottom-2 left-0.5 right-0.5 rounded-lg shadow-lg">
                                 <slot name="editor"></slot>
@@ -28,7 +28,7 @@ import BaseLayout from '@/layouts/BaseLayout.vue';
                         </div>
                     </ResizablePanel>
                     <ResizableHandle class="hidden xl:block bg-transparent hover:bg-cyan-500" />
-                    <ResizablePanel :default-size="25" class="hidden xl:block">
+                    <ResizablePanel :default-size="20" class="hidden xl:block">
                         <div class="relative h-full w-full">
                             <div class="absolute top-0 bottom-2 left-0.5 right-2 rounded-lg shadow-lg">
                                 <slot name="console"></slot>

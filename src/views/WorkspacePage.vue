@@ -26,7 +26,7 @@ import { CodeBracketIcon, CommandLineIcon, DocumentTextIcon } from '@heroicons/v
                     <CodeBracketIcon class="h-6 w-auto text-cyan-500" />
                     <span>代码</span>
                 </div>
-                <CodeEditor class="max-h-[calc(100%-2.25rem)]" />
+                <CodeEditor class="max-h-[calc(100%-2.25rem)] pt-2" />
             </div>
         </template>
         <template #console>
